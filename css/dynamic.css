@@ -1,0 +1,64 @@
+/*animation*/
+#timing {
+	-webkit-animation-duration: 1s;
+	-moz-animation-duration: 1s;
+	-o-animation-duration: 1s;
+	animation-duration: 1s;
+	-webkit-animation-fill-mode: both;
+	-moz-animation-fill-mode: both;
+	-o-animation-fill-mode: both;
+	animation-fill-mode: both;
+}
+
+/*style for the demo*/
+#testbox {
+	width: 30%;
+	position: relative;
+	z-index: 11;
+	height: auto;
+}
+
+#testbox #retrobox {
+	width: 100px;
+	height: 100px;
+	/*left: 12%;*/
+	position: fixed;
+	z-index: 12;
+	/*top: 200px;*/
+    top: 250px;
+	right: 15%;
+	text-align: center;
+	line-height: 100px;
+	font-size: 2em;
+	border: 2px solid #fff;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+	-webkit-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+}
+
+#testbox #timing {
+	width: 100px;
+	height: 100px;
+	/*left: 12%;*/
+	position: fixed;
+	/*top: 200px;*/
+	top: 250px;
+	right: 15%;
+	z-index: 13;
+	text-align: center;
+	line-height: 100px;
+	font-size: 2.4em;
+	background: #000;
+	color: #fff;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+#cssoptions a{
+	margin-bottom: 10px;
+}

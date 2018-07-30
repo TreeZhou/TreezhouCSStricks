@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta charset="UTF-8">
+		<title>CSS动效</title>
+		<style>
+			.unit{
+				margin-bottom: 20px;
+				-webkit-box-shadow: none;
+     			box-shadow: none;
+			}
+			.price-body{
+				position: relative;
+				height: 150px;
+				background-color: #979191 !important;
+			}
+			.price-body img{
+				position: absolute;
+				display: block;
+				width: 50px;
+				height: 50px;
+				left: 50%;
+				top: 50%;
+				margin-left: -25px;
+				margin-top: -25px;
+			}
+			.price-foot,.real-title{
+				overflow:hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
+			.real-title{
+				font-size: 18px;
+			}
+			.navpanel-link{
+				display: block;
+				width: 100%;
+				height: 100%;
+			}
+		</style>
+		<link rel="stylesheet" type="text/css" href="libs/css/site.min.css" />
+		<script src="libs/js/site.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="libs/js/router.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/router.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<!--要引入的样式类文件放在这里-->
+		<link rel="stylesheet" type="text/css" href="css/only-rotate.css"/>
+		<link rel="stylesheet" type="text/css" href="css/loading.css"/>
+		<link rel="stylesheet" type="text/css" href="css/dynamic.css"/>
+		<link rel="stylesheet" type="text/css" href="css/magic.css"/>
+	</head>
+
+	<body>
+		<!--nav-->
+		<nav role="navigation" class="navbar navbar-custom">
+			<div class="container-fluid">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<a href="#" class="navbar-brand">特效</a>
+				</div>
+			</div>
+			<!-- /.container-fluid -->
+		</nav>
+		<!--header-->
+		<div class="container-fluid">
+			<!--documents-->
+			<div class="row row-offcanvas row-offcanvas-left">
+				<div class="col-xs-6 col-sm-3 sidebar-offcanvas" role="navigation" id="navpanel"></div>
+				<div class="col-xs-12 col-sm-9 content">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title"><a href="javascript:void(0);" class="toggle-sidebar"><span class="" data-toggle="offcanvas" title="Maximize Panel">&lt;&lt;</span></a> 具体案例</h3>
+						</div>
+						<div class="panel-body">
+							<div class="content-row" id="container"></div>
+						</div>
+						<!-- panel body -->
+					</div>
+				</div>
+				<!-- content -->
+			</div>
+		</div>
+
+	</body>
+
+	<link rel="import" href="./navpanel/navpanel.html">
+	<link rel="import" href="./static/static.html">
+	<link rel="import" href="./loading/loading.html">
+	<link rel="import" href="./dynamic/dynamic.html">
+	<link rel="import" href="./others/others.html">
+
+</html>

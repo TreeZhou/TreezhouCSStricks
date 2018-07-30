@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta charset="UTF-8">
+		<title>CSS动效</title>
+		<style>
+			.unit{
+				margin-bottom: 20px;
+				-webkit-box-shadow: none;
+     			box-shadow: none;
+			}
+			.price-body{
+				position: relative;
+				height: 150px;
+				background-color: #979191 !important;
+			}
+			.price-body img{
+				position: absolute;
+				display: block;
+				width: 50px;
+				height: 50px;
+				left: 50%;
+				top: 50%;
+				margin-left: -25px;
+				margin-top: -25px;
+			}
+			.price-foot,.real-title{
+				overflow:hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
+			.real-title{
+				font-size: 18px;
+			}
+			.navpanel-link{
+				display: block;
+				width: 100%;
+				height: 100%;
+			}
+		</style>
+		<link rel="stylesheet" type="text/css" href="libs/css/site.min.css" />
+		<script src="libs/js/site.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="libs/js/router.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/router.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<!--要引入的样式类文件放在这里-->
+		<link rel="stylesheet" type="text/css" href="css/only-rotate.css"/>
+		<link rel="stylesheet" type="text/css" href="css/loading.css"/>
+		<link rel="stylesheet" type="text/css" href="css/dynamic.css"/>
+		<link rel="stylesheet" type="text/css" href="css/magic.css"/>
+	</head>
+
+	<body>
+		<!--nav-->
+		<nav role="navigation" class="navbar navbar-custom">
+			<div class="container-fluid">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<a href="#" class="navbar-brand">特效</a>
+				</div>
+			</div>
+			<!-- /.container-fluid -->
+		</nav>
+		<!--header-->
+		<div class="container-fluid">
+			<!--documents-->
+			<div class="row row-offcanvas row-offcanvas-left">
+				<div class="col-xs-6 col-sm-3 sidebar-offcanvas" role="navigation" id="navpanel"></div>
+				<div class="col-xs-12 col-sm-9 content">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title"><a href="javascript:void(0);" class="toggle-sidebar"><span class="" data-toggle="offcanvas" title="Maximize Panel">&lt;&lt;</span></a> 具体案例</h3>
+						</div>
+						<div class="panel-body">
+							<div class="content-row" id="container"></div>
+						</div>
+						<!-- panel body -->
+					</div>
+				</div>
+				<!-- content -->
+			</div>
+		</div>
+
+	</body>
+
+	<script type="text/html" id="tpl_navpanel">
+<ul class="list-group panel">
+	<li class="list-group-item">
+		<a href="#/static" class="navpanel-link">图片动效</a>
+	</li>
+	<li class="list-group-item">
+		<a href="#/loading" class="navpanel-link">loading动效</li>
+	<li class="list-group-item">
+		<a href="#/dynamic" class="navpanel-link">交互动效</a>
+	</li>
+	<li class="list-group-item">
+		<a href="#/others" class="navpanel-link">其他动效</a>
+	</li>
+</ul>
+</script>
+	<script type="text/html" id="tpl_static">
+<!--一张图片的动效-->
+<div class="pricing">
+	<ul>
+		<li class="unit price-success col-sm-3">
+			<div class="price-title">
+				<h3 class="real-title">only-rotate</h3>
+			</div>
+			<div class="price-body">
+				<img src="assets/logo.png" class="only-rotate"/><!--把样式添加到img的class里面即可-->
+			</div>
+			<div class="price-foot" data-toggle="tooltip" data-placement="bottom" title="这是一个不断旋转的动画效果">
+				这是一个不断旋转的动画效果
+			</div>
+		</li>
+		<li class="unit price-success col-sm-3">
+			<div class="price-title">
+				<h3 class="real-title" title="cssBox">cssBox</h3>
+			</div>
+			<div class="price-body">
+				<div class="cssBox">
+			        <div class="borderRadius">
+			            <div class="lfRaidus">
+			                <div class="ctRaidus"></div>
+			            </div>
+			            <div class="rtRaidus">
+			                <div class="ctRaidus"></div>
+			                <div class="hfPoint"></div>
+			                <div class="rtPoint"></div>
+			            </div>
+			        </div>
+			        <div class="imageRadius">
+			            <img src="assets/border.png" width="100%" alt="">
+			        </div>
+			        <div class="waveRaidus">
+			            <img src="assets/border.png" width="100%" alt="">
+			        </div>
+			        <div class="pointRadius">
+			            <img src="assets/circleInner.png" width="100%" alt="">
+			        </div>
+			    </div>
+			</div>
+			<div class="price-foot">
+				cssBox
+			</div>
+		</li>
+		<li class="unit price-success col-sm-3">
+			<div class="price-title">
+				<h3 class="real-title">未知</h3>
+			</div>
+			<div class="price-body">
+				<img src="assets/logo.png" class=""/>
+			</div>
+			<div class="price-foot" data-toggle="tooltip" data-placement="bottom" title="暂无描述">
+				暂无描述
+			</div>
+		</li>
+	</ul>
+</div>
+</script>
+	<script type="text/html" id="tpl_loading">
+<!--Loading的动效-->
+<div class="pricing">
+	<ul>
+		<li class="unit price-success col-sm-3">
+			<div class="price-title">
+				<h3 class="real-title" title="loader">loader</h3>
+			</div>
+			<div class="price-body">
+				<div class="loader"></div>
+			</div>
+			<div class="price-foot">
+				loader
+			</div>
+		</li>
+		<li class="unit price-success col-sm-3">
+			<div class="price-title">
+				<h3 class="real-title" title="loader1">loader1</h3>
+			</div>
+			<div class="price-body">
+				<div class="loader1">
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+			</div>
+			<div class="price-foot">
+				loader1
+			</div>
+		</li>
+		<li class="unit price-success col-sm-3">
+			<div class="price-title">
+				<h3 class="real-title" title="loader2">loader2</h3>
+			</div>
+			<div class="price-body">
+				<div class="loader2"></div>
+			</div>
+			<div class="price-foot">
+				loader2
+			</div>
+		</li>
+		<li class="unit price-success col-sm-3">
+			<div class="price-title">
+				<h3 class="real-title" title="loader3">loader3</h3>
+			</div>
+			<div class="price-body">
+				<div class="loader3">
+					<span></span>
+					<span></span>
+				</div>
+			</div>
+			<div class="price-foot">
+				loader3
+			</div>
+		</li>
+		<li class="unit price-success col-sm-3">
+			<div class="price-title">
+				<h3 class="real-title" title="loader4">loader4</h3>
+			</div>
+			<div class="price-body">
+				<div class="loader4"></div>
+			</div>
+			<div class="price-foot">
+				loader4
+			</div>
+		</li>
+		<li class="unit price-success col-sm-3">
+			<div class="price-title">
+				<h3 class="real-title" title="loader5">loader5</h3>
+			</div>
+			<div class="price-body">
+				<div class="loader5"></div>
+			</div>
+			<div class="price-foot">
+				loader5
+			</div>
+		</li>
+		<li class="unit price-success col-sm-3">
+			<div class="price-title">
+				<h3 class="real-title" title="loader6">loader6</h3>
+			</div>
+			<div class="price-body">
+				<div class="loader6"></div>
+			</div>
+			<div class="price-foot">
+				loader6
+			</div>
+		</li>
+		<li class="unit price-success col-sm-3">
+			<div class="price-title">
+				<h3 class="real-title" title="loader7">loader7</h3>
+			</div>
+			<div class="price-body">
+				<div class="loader7"></div>
+			</div>
+			<div class="price-foot">
+				loader7
+			</div>
+		</li>
+		<li class="unit price-success col-sm-3">
+			<div class="price-title">
+				<h3 class="real-title" title="loader8">loader8</h3>
+			</div>
+			<div class="price-body">
+				<div class="loader8"></div>
+			</div>
+			<div class="price-foot">
+				loader8
+			</div>
+		</li>
+		<li class="unit price-success col-sm-3">
+			<div class="price-title">
+				<h3 class="real-title" title="loader9">loader9</h3>
+			</div>
+			<div class="price-body">
+				<div class="loader9"></div>
+			</div>
+			<div class="price-foot">
+				loader9
+			</div>
+		</li>
+		<li class="unit price-success col-sm-3">
+			<div class="price-title">
+				<h3 class="real-title" title="loader10">loader10</h3>
+			</div>
+			<div class="price-body">
+				<div class="loader10">
+					<i></i><i></i>
+				</div>
+			</div>
+			<div class="price-foot">
+				loader10
+			</div>
+		</li>
+		<li class="unit price-success col-sm-3">
+			<div class="price-title">
+				<h3 class="real-title" title="loader11">loader11</h3>
+			</div>
+			<div class="price-body">
+				<div class="loader11">
+					<i></i>
+				</div>
+			</div>
+			<div class="price-foot">
+				loader11
+			</div>
+		</li>
+		<li class="unit price-success col-sm-3">
+			<div class="price-title">
+				<h3 class="real-title" title="loader12">loader12</h3>
+			</div>
+			<div class="price-body">
+				<div class="loader12">
+					<i></i>
+				</div>
+			</div>
+			<div class="price-foot">
+				loader12
+			</div>
+		</li>
+		<li class="unit price-success col-sm-3">
+			<div class="price-title">
+				<h3 class="real-title" title="loader13">loader13</h3>
+			</div>
+			<div class="price-body">
+				<div class="loader13">
+					<i></i><i></i>
+				</div>
+			</div>
+			<div class="price-foot">
+				loader13
+			</div>
+		</li>
+		<li class="unit price-success col-sm-3">
+			<div class="price-title">
+				<h3 class="real-title" title="loader14">solar</h3>
+			</div>
+			<div class="price-body">
+				<div class="solar">
+					<i class="mercury"></i>
+					<i class="venus"></i>
+					<i class="earth"></i>
+					<i class="mars"></i>
+					<i class="belt"></i>
+					<i class="jupiter"></i>
+					<i class="saturn"></i>
+					<i class="uranus"></i>
+					<i class="neptune"></i>
+				</div>
+			</div>
+			<div class="price-foot">
+				loader14
+			</div>
+		</li>
+		<li class="unit price-success col-sm-3">
+			<div class="price-title">
+				<h3 class="real-title" title="ball-clip-rotate-pulse">ball-clip-rotate-pulse</h3>
+			</div>
+			<div class="price-body">
+				<div class="ball-clip-rotate-pulse">
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
+			</div>
+			<div class="price-foot">
+				loader15
+			</div>
+		</li>
+		<li class="unit price-success col-sm-3">
+			<div class="price-title">
+				<h3 class="real-title" title="ball-grid-pulse">ball-grid-pulse</h3>
+			</div>
+			<div class="price-body">
+				<div class="ball-grid-pulse">
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
+			</div>
+			<div class="price-foot">
+				loader16
+			</div>
+		</li>
+		<li class="unit price-success col-sm-3">
+			<div class="price-title">
+				<h3 class="real-title" title="square-spin">square-spin</h3>
+			</div>
+			<div class="price-body">
+				<div class="square-spin">
+					<div></div>
+				</div>
+			</div>
+			<div class="price-foot">
+				loader17
+			</div>
+		</li>
+		<li class="unit price-success col-sm-3">
+			<div class="price-title">
+				<h3 class="real-title" title="ball-pulse">ball-pulse</h3>
+			</div>
+			<div class="price-body">
+				<div class="ball-pulse">
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
+			</div>
+			<div class="price-foot">
+				loader18
+			</div>
+		</li>
+		<li class="unit price-success col-sm-3">
+			<div class="price-title">
+				<h3 class="real-title" title="ball-clip-rotate-multiple">ball-clip-rotate-multiple</h3>
+			</div>
+			<div class="price-body">
+				<div class="ball-clip-rotate-multiple">
+					<div></div>
+					<div></div>
+				</div>
+			</div>
+			<div class="price-foot">
+				loader19
+			</div>
+		</li>
+		<li class="unit price-success col-sm-3">
+			<div class="price-title">
+				<h3 class="real-title" title="ball-pulse-rise">ball-pulse-rise</h3>
+			</div>
+			<div class="price-body">
+				<div class="ball-pulse-rise">
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
+			</div>
+			<div class="price-foot">
+				loader20
+			</div>
+		</li>
+		<li class="unit price-success col-sm-3">
+			<div class="price-title">
+				<h3 class="real-title" title="ball-rotate">ball-rotate</h3>
+			</div>
+			<div class="price-body">
+				<div class="ball-rotate">
+					<div></div>
+				</div>
+			</div>
+			<div class="price-foot">
+				loader21
+			</div>
+		</li>
+		<li class="unit price-success col-sm-3">
+			<div class="price-title">
+				<h3 class="real-title" title="ball-triangle-path">ball-triangle-path</h3>
+			</div>
+			<div class="price-body">
+				<div class="ball-triangle-path">
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
+			</div>
+			<div class="price-foot">
+				loader22
+			</div>
+		</li>
+		<li class="unit price-success col-sm-3">
+			<div class="price-title">
+				<h3 class="real-title" title="ball-pulse-sync">ball-pulse-sync</h3>
+			</div>
+			<div class="price-body">
+				<div class="ball-pulse-sync">
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
+			</div>
+			<div class="price-foot">
+				loader23
+			</div>
+		</li>
+		<li class="unit price-success col-sm-3">
+			<div class="price-title">
+				<h3 class="real-title" title="ball-spin-fade-loader">ball-spin-fade-loader</h3>
+			</div>
+			<div class="price-body">
+				<div class="ball-spin-fade-loader">
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
+			</div>
+			<div class="price-foot">
+				loader24
+			</div>
+		</li>
+		<li class="unit price-success col-sm-3">
+			<div class="price-title">
+				<h3 class="real-title" title="line-spin-fade-loader">line-spin-fade-loader</h3>
+			</div>
+			<div class="price-body">
+				<div class="line-spin-fade-loader">
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
+			</div>
+			<div class="price-foot">
+				loader25
+			</div>
+		</li>
+		<li class="unit price-success col-sm-3">
+			<div class="price-title">
+				<h3 class="real-title" title="pacman">pacman</h3>
+			</div>
+			<div class="price-body">
+				<div class="pacman">
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
+			</div>
+			<div class="price-foot">
+				loader26
+			</div>
+		</li>
+		<li class="unit price-success col-sm-3">
+			<div class="price-title">
+				<h3 class="real-title" title="semi-circle-spin">semi-circle-spin</h3>
+			</div>
+			<div class="price-body">
+				<div class="semi-circle-spin">
+					<div></div>
+				</div>
+			</div>
+			<div class="price-foot">
+				loader27
+			</div>
+		</li>
+		<li class="unit price-success col-sm-3">
+			<div class="price-title">
+				<h3 class="real-title" title="triangle-skew-spin">triangle-skew-spin</h3>
+			</div>
+			<div class="price-body">
+				<div class="triangle-skew-spin">
+					<div></div>
+				</div>
+			</div>
+			<div class="price-foot">
+				loader28
+			</div>
+		</li>
+		<li class="unit price-success col-sm-3">
+			<div class="price-title">
+				<h3 class="real-title" title="ball-grid-beat">ball-grid-beat</h3>
+			</div>
+			<div class="price-body">
+				<div class="ball-grid-beat">
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
+			</div>
+			<div class="price-foot">
+				loader29
+			</div>
+		</li>
+		<li class="unit price-success col-sm-3">
+			<div class="price-title">
+				<h3 class="real-title" title="ball-scale-ripple-multiple">ball-scale-ripple-multiple</h3>
+			</div>
+			<div class="price-body">
+				<div class="ball-scale-ripple-multiple">
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
+			</div>
+			<div class="price-foot">
+				loader30
+			</div>
+		</li>
+		<li class="unit price-success col-sm-3">
+			<div class="price-title">
+				<h3 class="real-title" title="ball-scale-ripple">ball-scale-ripple</h3>
+			</div>
+			<div class="price-body">
+				<div class="ball-scale-ripple">
+					<div></div>
+				</div>
+			</div>
+			<div class="price-foot">
+				loader31
+			</div>
+		</li>
+		<li class="unit price-success col-sm-3">
+			<div class="price-title">
+				<h3 class="real-title" title="line-scale-pulse-out-rapid">line-scale-pulse-out-rapid</h3>
+			</div>
+			<div class="price-body">
+				<div class="line-scale-pulse-out-rapid">
+		          <div></div>
+		          <div></div>
+		          <div></div>
+		          <div></div>
+		          <div></div>
+		        </div>
+			</div>
+			<div class="price-foot">
+				loader32
+			</div>
+		</li>
+		<li class="unit price-success col-sm-3">
+			<div class="price-title">
+				<h3 class="real-title" title="line-scale-pulse-out">line-scale-pulse-out</h3>
+			</div>
+			<div class="price-body">
+				<div class="line-scale-pulse-out">
+		          <div></div>
+		          <div></div>
+		          <div></div>
+		          <div></div>
+		          <div></div>
+		        </div>
+			</div>
+			<div class="price-foot">
+				loader33
+			</div>
+		</li>
+		<li class="unit price-success col-sm-3">
+			<div class="price-title">
+				<h3 class="real-title" title="line-scale-party">line-scale-party</h3>
+			</div>
+			<div class="price-body">
+				<div class="line-scale-party">
+		          <div></div>
+		          <div></div>
+		          <div></div>
+		          <div></div>
+		        </div>
+			</div>
+			<div class="price-foot">
+				loader34
+			</div>
+		</li>
+		<li class="unit price-success col-sm-3">
+			<div class="price-title">
+				<h3 class="real-title" title="line-scale">line-scale</h3>
+			</div>
+			<div class="price-body">
+				<div class="line-scale">
+		          <div></div>
+		          <div></div>
+		          <div></div>
+		          <div></div>
+		          <div></div>
+		        </div>
+			</div>
+			<div class="price-foot">
+				loader35
+			</div>
+		</li>
+		<li class="unit price-success col-sm-3">
+			<div class="price-title">
+				<h3 class="real-title" title="cube-transition">cube-transition</h3>
+			</div>
+			<div class="price-body">
+				<div class="cube-transition">
+		          <div></div>
+		          <div></div>
+		        </div>
+			</div>
+			<div class="price-foot">
+				loader36
+			</div>
+		</li>
+		<li class="unit price-success col-sm-3">
+			<div class="price-title">
+				<h3 class="real-title" title="ball-zig-zag">ball-zig-zag</h3>
+			</div>
+			<div class="price-body">
+				<div class="ball-zig-zag">
+		          <div></div>
+		          <div></div>
+		        </div>
+			</div>
+			<div class="price-foot">
+				loader37
+			</div>
+		</li>
+		<li class="unit price-success col-sm-3">
+			<div class="price-title">
+				<h3 class="real-title" title="cupcake">cupcake</h3>
+			</div>
+			<div class="price-body">
+				<div id = "cupcake" class = "box">
+				    <span class = "letter">L</span>
+				    <div class = "cupcakeCircle box">
+				    <div class = "cupcakeInner box">
+				        <div class = "cupcakeCore box"></div>
+				    </div></div>
+				    <span class = "letter box">A</span>
+				    <span class = "letter box">D</span>
+				    <span class = "letter box">I</span>
+				    <span class = "letter box">N</span>
+				    <span class = "letter box">G</span>
+				</div>
+			</div>
+			<div class="price-foot">
+				loader38
+			</div>
+		</li>
+		<li class="unit price-success col-sm-3">
+			<div class="price-title">
+				<h3 class="real-title" title="timer">timer</h3>
+			</div>
+			<div class="price-body">
+				<div class="timer"></div>
+			</div>
+			<div class="price-foot">
+				loader39
+			</div>
+		</li>
+		<li class="unit price-success col-sm-3">
+			<div class="price-title">
+				<h3 class="real-title" title="typing_loader">typing_loader</h3>
+			</div>
+			<div class="price-body">
+				<div class="typing_loader"></div>
+			</div>
+			<div class="price-foot">
+				loader40
+			</div>
+		</li>
+		<li class="unit price-success col-sm-3">
+			<div class="price-title">
+				<h3 class="real-title" title="location_indicator">location_indicator</h3>
+			</div>
+			<div class="price-body">
+				<div class="location_indicator"></div>
+			</div>
+			<div class="price-foot">
+				loader41
+			</div>
+		</li>
+		<li class="unit price-success col-sm-3">
+			<div class="price-title">
+				<h3 class="real-title" title="dashboard">dashboard</h3>
+			</div>
+			<div class="price-body">
+				<div class="dashboard"></div>
+			</div>
+			<div class="price-foot">
+				loader42
+			</div>
+		</li>
+		<li class="unit price-success col-sm-3">
+			<div class="price-title">
+				<h3 class="real-title" title="battery">battery</h3>
+			</div>
+			<div class="price-body">
+				<div class="battery"></div>
+			</div>
+			<div class="price-foot">
+				loader43
+			</div>
+		</li>
+		<li class="unit price-success col-sm-3">
+			<div class="price-title">
+				<h3 class="real-title">magnifier</h3>
+			</div>
+			<div class="price-body">
+				<div class="magnifier" title="magnifier"></div>
+			</div>
+			<div class="price-foot">
+				loader44
+			</div>
+		</li>
+		<li class="unit price-success col-sm-3">
+			<div class="price-title">
+				<h3 class="real-title" title="help">help</h3>
+			</div>
+			<div class="price-body">
+				<div class="help"></div>
+			</div>
+			<div class="price-foot">
+				loader45
+			</div>
+		</li>
+		<li class="unit price-success col-sm-3">
+			<div class="price-title">
+				<h3 class="real-title" title="cloud">cloud</h3>
+			</div>
+			<div class="price-body">
+				<div class="cloud"></div>
+			</div>
+			<div class="price-foot">
+				loader46
+			</div>
+		</li>
+		<li class="unit price-success col-sm-3">
+			<div class="price-title">
+				<h3 class="real-title" title="eye">eye</h3>
+			</div>
+			<div class="price-body">
+				<div class="eye"></div>
+			</div>
+			<div class="price-foot">
+				loader47
+			</div>
+		</li>
+		<li class="unit price-success col-sm-3">
+			<div class="price-title">
+				<h3 class="real-title" title="coffee_cup">coffee_cup</h3>
+			</div>
+			<div class="price-body">
+				<div class="coffee_cup"></div>
+			</div>
+			<div class="price-foot">
+				loader48
+			</div>
+		</li>
+		<li class="unit price-success col-sm-3">
+			<div class="price-title">
+				<h3 class="real-title" title="square">square</h3>
+			</div>
+			<div class="price-body">
+				<div class="square"></div>
+			</div>
+			<div class="price-foot">
+				loader49
+			</div>
+		</li>
+		<li class="unit price-success col-sm-3">
+			<div class="price-title">
+				<h3 class="real-title" title="circle">circle</h3>
+			</div>
+			<div class="price-body">
+				<div class="circle"></div>
+			</div>
+			<div class="price-foot">
+				loader50
+			</div>
+		</li>
+		<li class="unit price-success col-sm-3">
+			<div class="price-title">
+				<h3 class="real-title" title="loading-center-absolute">loading-center-absolute</h3>
+			</div>
+			<div class="price-body">
+				<div id="loading-center-absolute">
+					<div class="object" id="object_one"></div>
+					<div class="object" id="object_two"></div>
+					<div class="object" id="object_three"></div>
+					<div class="object" id="object_four"></div>
+					<div class="object" id="object_five"></div>
+					<div class="object" id="object_six"></div>
+					<div class="object" id="object_seven"></div>
+					<div class="object" id="object_eight"></div>
+					<div class="object" id="object_big"></div>
+				</div>
+			</div>
+			<div class="price-foot">
+				loader51
+			</div>
+		</li>
+		<li class="unit price-success col-sm-3">
+			<div class="price-title">
+				<h3 class="real-title" title="load-circle">load-circle</h3>
+			</div>
+			<div class="price-body">
+				<div class="load-circle"></div>
+				<p class="word">加载中...</p>
+			</div>
+			<div class="price-foot">
+				loader52
+			</div>
+		</li>
+		<li class="unit price-success col-sm-3">
+			<div class="price-title">
+				<h3 class="real-title" title="dot-circle">dot-circle</h3>
+			</div>
+			<div class="price-body">
+				<div class="dot-circle">
+				  <div class="dot1"></div>
+				  <div class="dot2"></div>
+				</div>
+			</div>
+			<div class="price-foot">
+				loader53
+			</div>
+		</li>
+		<li class="unit price-success col-sm-3">
+			<div class="price-title">
+				<h3 class="real-title" title="loader-dot">loader-dot</h3>
+			</div>
+			<div class="price-body">
+				<div class="loader-dot">
+				  <div class="dot"></div>
+				  <div class="dot"></div>
+				  <div class="dot"></div>
+				  <div class="dot"></div>
+				  <div class="dot"></div>
+				</div>
+			</div>
+			<div class="price-foot">
+				loader54
+			</div>
+		</li>
+		<li class="unit price-success col-sm-3">
+			<div class="price-title">
+				<h3 class="real-title" title="circle-loader">circle-loader</h3>
+			</div>
+			<div class="price-body">
+				<div class="circle-loader">
+			        <div class="circle-line">
+			            <div class="linecircle circle-blue"></div>
+			            <div class="linecircle circle-blue"></div>
+			            <div class="linecircle circle-blue"></div>
+			        </div>
+			        <div class="circle-line">
+			            <div class="linecircle circle-yellow"></div>
+			            <div class="linecircle circle-yellow"></div>
+			            <div class="linecircle circle-yellow"></div>
+			        </div>
+			        <div class="circle-line">
+			            <div class="linecircle circle-red"></div>
+			            <div class="linecircle circle-red"></div>
+			            <div class="linecircle circle-red"></div>
+			        </div>
+			        <div class="circle-line">
+			            <div class="linecircle circle-green"></div>
+			            <div class="linecircle circle-green"></div>
+			            <div class="linecircle circle-green"></div>
+			        </div>
+			    </div>
+			</div>
+			<div class="price-foot">
+				loader55
+			</div>
+		</li>
+		<li class="unit price-success col-sm-3">
+			<div class="price-title">
+				<h3 class="real-title" title="loading-center-absolute2">loading-center-absolute2</h3>
+			</div>
+			<div class="price-body">
+				<div class="loading-center-absolute2">
+					<div class="object2" id="first_object"></div>
+					<div class="object2" id="second_object"></div>
+					<div class="object2" id="third_object"></div>
+				</div>
+			</div>
+			<div class="price-foot">
+				loader56
+			</div>
+		</li>
+		<li class="unit price-success col-sm-3">
+			<div class="price-title">
+				<h3 class="real-title" title="loading-center-absolute3">loading-center-absolute3</h3>
+			</div>
+			<div class="price-body">
+				<div class="loading-center-absolute3">
+			      <div class="object3" id="object_one_3"></div>
+			      <div class="object3" id="object_two_3"></div>
+			      <div class="object3" id="object_three_3"></div>
+			      <div class="object3" id="object_four_3"></div>
+			    </div>
+			</div>
+			<div class="price-foot">
+				loader57
+			</div>
+		</li>
+		<li class="unit price-success col-sm-3">
+			<div class="price-title">
+				<h3 class="real-title" title="loading-center-absolute4">loading-center-absolute4</h3>
+			</div>
+			<div class="price-body">
+			    <div class="loading-center-absolute4">
+			      <div class="object4" id="object_one_4"></div>
+			      <div class="object4" id="object_two_4"></div>
+			      <div class="object4" id="object_three_4"></div>
+			      <div class="object4" id="object_four_4"></div>
+			    </div>
+			</div>
+			<div class="price-foot">
+				loader58
+			</div>
+		</li>
+		<li class="unit price-success col-sm-3">
+			<div class="price-title">
+				<h3 class="real-title" title="loading-center-absolute5">loading-center-absolute5</h3>
+			</div>
+			<div class="price-body">
+				<div class="loading-center-absolute5">
+			      <div class="object5" id="object_one_5"></div>
+					<div class="object5" id="object_two_5"></div>
+					<div class="object5" id="object_three_5"></div>
+					<div class="object5" id="object_four_5"></div>
+					<div class="object5" id="object_big_5"></div>
+				</div>
+			</div>
+			<div class="price-foot">
+				loader59
+			</div>
+		</li>
+		<li class="unit price-success col-sm-3">
+			<div class="price-title">
+				<h3 class="real-title" title="loading_progress">loading_progress</h3>
+			</div>
+			<div class="price-body">
+				<div class="loading_progress">
+				    <span></span>
+				</div>
+			</div>
+			<div class="price-foot">
+				loader60
+			</div>
+		</li>
+		<li class="unit price-success col-sm-3">
+			<div class="price-title">
+				<h3 class="real-title" title="load_txt">load_txt</h3>
+			</div>
+			<div class="price-body">
+		      	<div class="load_txt">LOADING<i>...</i></div>
+			</div>
+			<div class="price-foot">
+				loader61
+			</div>
+		</li>
+	</ul>
+</div>
+
+</script>
+	<script type="text/html" id="tpl_dynamic">
+<!--具有交互效果的动效-->
+<div class="pricing">
+	<div id="testbox">
+		<div id="retrobox"></div>
+		<div id="timing" class="perspective"></div>
+		<!--在magic的css中找到对应的类和动画并添加到需要的地方即可-->
+	</div>
+	<div id="cssoptions">
+		<h3>Magic Effects</h3>
+		<a class="btn" data-test='magic'>magic</a>
+		<a class="btn" data-test='twisterInDown'>twisterInDown</a>
+		<a class="btn" data-test='twisterInUp'>twisterInUp</a>
+		<a class="btn" data-test='swap'>swap</a>
+
+		<h3>Bling</h3>
+		<a class="btn" data-test='puffIn'>puffIn</a>
+		<a class="btn" data-test='puffOut'>puffOut</a>
+		<a class="btn" data-test='vanishIn'>vanishIn</a>
+		<a class="btn" data-test='vanishOut'>vanishOut</a>
+
+		<h3>Static Effects</h3>
+		<a class="btn" data-test='openDownLeft'>openDownLeft</a>
+		<a class="btn" data-test='openDownRight'>openDownRight</a>
+		<a class="btn" data-test='openUpLeft'>openUpLeft</a>
+		<a class="btn" data-test='openUpRight'>openUpRight</a>
+		<a class="btn" data-test='openDownLeftRetourn'>openDownLeftRetourn</a>
+		<a class="btn" data-test='openDownRightRetourn'>openDownRightRetourn</a>
+		<a class="btn" data-test='openUpLeftRetourn'>openUpLeftRetourn</a>
+		<a class="btn" data-test='openUpRightRetourn'>openUpRightRetourn</a>
+
+		<h3>Static Effects Out</h3>
+		<a class="btn" data-test='openDownLeftOut'>openDownLeftOut</a>
+		<a class="btn" data-test='openDownRightOut'>openDownRightOut</a>
+		<a class="btn" data-test='openUpLeftOut'>openUpLeftOut</a>
+		<a class="btn" data-test='openUpRightOut'>openUpRightOut</a>
+
+		<h3>Perspective</h3>
+		<a class="btn" data-test='perspectiveDown'>perspectiveDown</a>
+		<a class="btn" data-test='perspectiveUp'>perspectiveUp</a>
+		<a class="btn" data-test='perspectiveLeft'>perspectiveLeft</a>
+		<a class="btn" data-test='perspectiveRight'>perspectiveRight</a>
+		<a class="btn" data-test='perspectiveDownRetourn'>perspectiveDownRetourn</a>
+		<a class="btn" data-test='perspectiveUpRetourn'>perspectiveUpRetourn</a>
+		<a class="btn" data-test='perspectiveLeftRetourn'>perspectiveLeftRetourn</a>
+		<a class="btn" data-test='perspectiveRightRetourn'>perspectiveRightRetourn</a>
+
+		<h3>Rotate</h3>
+		<a class="btn" data-test='rotateDown'>rotateDown</a>
+		<a class="btn" data-test='rotateUp'>rotateUp</a>
+		<a class="btn" data-test='rotateLeft'>rotateLeft</a>
+		<a class="btn" data-test='rotateRight'>rotateRight</a>
+
+		<h3>Slide</h3>
+		<a class="btn" data-test='slideDown'>slideDown</a>
+		<a class="btn" data-test='slideUp'>slideUp</a>
+		<a class="btn" data-test='slideLeft'>slideLeft</a>
+		<a class="btn" data-test='slideRight'>slideRight</a>
+		<a class="btn" data-test='slideDownRetourn'>slideDownRetourn</a>
+		<a class="btn" data-test='slideUpRetourn'>slideUpRetourn</a>
+		<a class="btn" data-test='slideLeftRetourn'>slideLeftRetourn</a>
+		<a class="btn" data-test='slideRightRetourn'>slideRightRetourn</a>
+
+		<h3>Math</h3>
+		<a class="btn" data-test='swashOut'>swashOut</a>
+		<a class="btn" data-test='swashIn'>swashIn</a>
+		<a class="btn" data-test='foolishOut'>foolishOut</a>
+		<a class="btn" data-test='foolishIn'>foolishIn</a>
+		<a class="btn" data-test='holeOut'>holeOut</a>
+
+		<h3>Tin</h3>
+		<a class="btn" data-test='tinRightOut'>tinRightOut</a>
+		<a class="btn" data-test='tinLeftOut'>tinLeftOut</a>
+		<a class="btn" data-test='tinUpOut'>tinUpOut</a>
+		<a class="btn" data-test='tinDownOut'>tinDownOut</a>
+		<a class="btn" data-test='tinRightIn'>tinRightIn</a>
+		<a class="btn" data-test='tinLeftIn'>tinLeftIn</a>
+		<a class="btn" data-test='tinUpIn'>tinUpIn</a>
+		<a class="btn" data-test='tinDownIn'>tinDownIn</a>
+
+		<h3>Bomb</h3>
+		<a class="btn" data-test='bombRightOut'>bombRightOut</a>
+		<a class="btn" data-test='bombLeftOut'>bombLeftOut</a>
+
+		<h3>Boing</h3>
+		<a class="btn" data-test='boingInUp'>boingInUp</a>
+		<a class="btn" data-test='boingOutDown'>boingOutDown</a>
+
+		<h3>On the Space</h3>
+		<a class="btn" data-test='spaceOutUp'>spaceOutUp</a>
+		<a class="btn" data-test='spaceOutRight'>spaceOutRight</a>
+		<a class="btn" data-test='spaceOutDown'>spaceOutDown</a>
+		<a class="btn" data-test='spaceOutLeft'>spaceOutLeft</a>
+		<a class="btn" data-test='spaceInUp'>spaceInUp</a>
+		<a class="btn" data-test='spaceInRight'>spaceInRight</a>
+		<a class="btn" data-test='spaceInDown'>spaceInDown</a>
+		<a class="btn" data-test='spaceInLeft'>spaceInLeft</a>
+	</div>
+	<!-- END DEMO code -->
+
+	<h3>Effects Part2</h3>
+	<a class="btn" data-test='boing'>boing</a>
+	<a class="btn" data-test='tremolo'>tremolo</a>
+	<a class="btn" data-test='jump'>jump</a>
+	<a class="btn" data-test='wheel'>wheel</a>
+	<a class="btn" data-test='ufo'>ufo</a>
+	<a class="btn" data-test='pump'>pump</a>
+	<a class="btn" data-test='scatman'>scatman</a>
+
+	<a class="btn" data-test='boom'>boom</a>
+	<a class="btn" data-test='roll'>roll</a>
+	<a class="btn" data-test='omg'>omg</a>
+	<a class="btn" data-test='tv'>tv</a>
+	<a class="btn" data-test='hey'>hey</a>
+
+	<a class="btn" data-test='inout'>inout</a>
+	<a class="btn" data-test='hooray'>hooray</a>
+	<a class="btn" data-test='vertigo'>vertigo</a>
+	<a class="btn" data-test='return'>return</a>
+	<a class="btn" data-test='flash'>flash</a>
+	<a class="btn" data-test='yo'>yo</a>
+	<a class="btn" data-test='splash'>splash</a>
+
+</div>
+</script>
+	<script type="text/html" id="tpl_others">
+<!--其他动效-->
+<div class="pricing">
+	<ul>
+	</ul>
+</div>
+</script>
+
+</html>

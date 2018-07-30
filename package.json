@@ -1,0 +1,20 @@
+{
+  "name": "119",
+  "version": "1.0.0",
+  "description": "酷酷的动效",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "browser-sync": "^2.17.6",
+    "gulp": "^3.9.1",
+    "gulp-tap": "^0.1.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@weixin.91iot.net:chenzhongyi/CSStricks.git"
+  },
+  "author": "",
+  "license": "ISC"
+}
